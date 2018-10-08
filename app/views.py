@@ -61,3 +61,16 @@ def cadastro_cursos(request):
         })
     )
 
+def criacao_vestibulares(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/criacao_vestibulares.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Cadastro de cursos',
+            'cursos': ['ADS' , 'SI', 'Administracao'],
+            'year':datetime.now().year,
+        })
+    )
+
