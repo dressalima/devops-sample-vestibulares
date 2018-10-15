@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
+from app.models import Curso
 from datetime import datetime
 
 def home(request):
@@ -58,6 +59,8 @@ def cadastro_cursos(request):
         {
             'title':'Cadastro de cursos',
             'cursos': ['ADS' , 'Sistema de Informacao', 'Administracao'],
+#            'cursos': ['ADS' , 'SI', 'CC'],
+            'cursos': Curso.objects.all(),
             'year':datetime.now().year,
         })
     )
